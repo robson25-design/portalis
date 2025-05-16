@@ -34,7 +34,6 @@ document.getElementById("signInForm").addEventListener("submit", async (e) => {
     e.target.reset();
 
   } catch (err) {
-    console.error("Erro ao registrar: ", err);
-    alert("Erro ao registrar. Veja o console.");
-  }
-});
+  alert("Erro ao registrar:\n" + err.message);
+  console.error("Erro completo:", err);
+}

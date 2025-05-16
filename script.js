@@ -1,35 +1,15 @@
-document.getElementById("signInForm").addEventListener("submit", function (e) {
-  e.preventDefault();
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
 
-  const fullName = document.getElementById("fullName").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  const company = document.getElementById("company").value.trim();
-  const keyNumber = document.getElementById("keyNumber").value.trim();
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyB1skIEBu06BC82AxvDBUUoyznmdS3h18Y",
+  authDomain: "portalis4you.firebaseapp.com",
+  projectId: "portalis4you",
+  storageBucket: "portalis4you.firebasestorage.app",
+  messagingSenderId: "866746677124",
+  appId: "1:866746677124:web:6e6cbb15ef882d243dcfd1"
+};
 
-  if (!fullName || !phone || !company) {
-    showMessage("Please complete all required fields.", true);
-    return;
-  }
-
-  // Simulate sending data (here you could add Firebase later)
-  console.log("Sign-in data:", {
-    fullName,
-    phone,
-    company,
-    keyNumber
-  });
-
-  showMessage("Visitor signed in successfully!");
-
-  this.reset(); // clear the form
-});
-
-function showMessage(msg, isError = false) {
-  const confirmation = document.getElementById("confirmationMsg");
-  confirmation.textContent = msg;
-  confirmation.style.color = isError ? "#e74c3c" : "#27ae60";
-
-  setTimeout(() => {
-    confirmation.textContent = "";
-  }, 4000);
-}
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);

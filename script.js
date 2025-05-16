@@ -14,26 +14,26 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 document.getElementById("signInForm").addEventListener("submit", async (e) => {
-  e.preventDefault(); // EVITA O REFRESH DA PÁGINA
+  e.preventDefault();
 
   const fullName = document.getElementById("fullName").value;
   const phone = document.getElementById("phone").value;
   const company = document.getElementById("company").value;
+  const keyNumber = document.getElementById("keyNumber").value;
 
   try {
     await addDoc(collection(db, "visitors"), {
       fullName,
       phone,
       company,
+      keyNumber,
       timestamp: new Date()
     });
 
-    alert("Visitante registrado com sucesso!");
-
-    // Opcional: limpar campos
+    document.getElementById("confirmationMsg").innerText = "Registered successfully!";
     e.target.reset();
-
-  } catch (err) {
-  alert("Erro ao registrar:\n" + err.message);
-  console.error("Erro completo:", err);
-}
+  } catch (error) {
+    document.getElementById("confirmationMsg").innerText = "Error registering. Try again.";
+    console.error("Firestore error:", error);
+  }
+});

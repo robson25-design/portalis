@@ -1,7 +1,6 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
-// Configuração do Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyB1skIEBu06BC82AxvDBUUoyznmdS3h18Y",
   authDomain: "portalis4you.firebaseapp.com",
@@ -11,13 +10,11 @@ const firebaseConfig = {
   appId: "1:866746677124:web:6e6cbb15ef882d243dcfd1"
 };
 
-// Inicializa Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Captura envio do formulário
 document.getElementById("signInForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+  e.preventDefault(); // EVITA O REFRESH DA PÁGINA
 
   const fullName = document.getElementById("fullName").value;
   const phone = document.getElementById("phone").value;
@@ -31,9 +28,13 @@ document.getElementById("signInForm").addEventListener("submit", async (e) => {
       timestamp: new Date()
     });
 
-    alert("Check-in enviado com sucesso!");
-    document.getElementById("signInForm").reset();
+    alert("Visitante registrado com sucesso!");
+
+    // Opcional: limpar campos
+    e.target.reset();
+
   } catch (err) {
-    alert("Erro ao enviar check-in: " + err.message);
+    console.error("Erro ao registrar: ", err);
+    alert("Erro ao registrar. Veja o console.");
   }
 });

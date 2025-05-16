@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Portalis – Visitor Sign In</title>
-    <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet" />
-  </head>
-  <body class="signin-body">
-    <div class="card animated fade-in">
-      <div class="logo">PORTALIS</div>
-      <h2>Welcome, please sign in</h2>
-      <form id="signInForm" class="form">
-        <div class="input-group">
-          <label for="fullName">Full Name</label>
-          <input type="text" id="fullName" required placeholder="Your full name" />
-        </div>
-        <div class="input-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" required pattern="[0-9]{10,11}" placeholder="e.g. 0891234567" />
-        </div>
-        <div class="input-group">
-          <label for="company">Company</label>
-          <input type="text" id="company" list="companyList" required placeholder="Your company" />
-          <datalist id="companyList"></datalist>
-        </div>
-        <div class="input-group">
-          <label for="keyNumber">Key Number</label>
-          <input type="text" id="keyNumber" required placeholder="Keycard number"/>
-        </div>
-        <button type="submit" class="btn">Sign In</button>
-        <div id="confirmationMsg" class="confirmation"></div>
-      </form>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portalis – Visitor Sign In</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet" />
+</head>
+<body class="signin-body">
+  <div class="card animated fade-in">
+    <div class="logo">PORTALIS</div>
+    <h2>Welcome, please sign in</h2>
+    <form id="signInForm" class="form">
+      <div class="input-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" required />
+      </div>
+      <div class="input-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" required pattern="[0-9]{10,11}" />
+      </div>
+      <div class="input-group">
+        <label for="company">Company</label>
+        <input type="text" id="company" required />
+      </div>
+      <div class="input-group">
+        <label for="keyNumber">Key Number</label>
+        <input type="text" id="keyNumber" required />
+      </div>
+      <button type="submit" class="btn">Sign In</button>
+      <div id="confirmationMsg" class="confirmation"></div>
+    </form>
+  </div>
 
-    <!-- Firebase logic -->
-    <script type="module" src="script.js"></script>
-  </body>
+  <script type="module" src="script.js"></script>
+</body>
 </html>
